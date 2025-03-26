@@ -32,6 +32,13 @@ label variable fina_equity "Financial Equity"
 // drop unneccesary variables
 drop pline hhcid track pa28 weight_ind city_lab county_lab pabcd pab house_asset garage_asset comprop_asset agri_asset busi_asset vehicle_asset othnf_asset house_debt comprop_debt agri_debt busi_debt vehicle_debt other_debt othnf_debt nfina_asset fina_debt fina_asset
 
+// replace value labels
+label define rural_lbl ///
+    0 "Urban" ///
+    1 "Rural"
+label values rural rural_lbl
+label variable rural "1: Rural 0: Urban"
+
 // mark year
 gen year = 2019
 order year
@@ -72,40 +79,47 @@ label variable other_equity "Other Equity"
 label variable fina_equity "Financial Equity"
 
 // generate the missing rural variable
-generate str10 region = ""
+generate region = .
 
 **************************************************************************
 * East：北京、天津、河北、上海、江苏、浙江、福建、山东、广东、海南
 **************************************************************************
-replace region = "东部" if inlist(prov, ///
+replace region = 1 if inlist(prov, ///
     "北京市", "天津市", "河北省", "上海市", "江苏省")
-replace region = "东部" if inlist(prov, ///
+replace region = 1 if inlist(prov, ///
     "浙江省", "福建省", "山东省", "广东省", "海南省")
 
 **************************************************************************
 * Middle：山西、安徽、江西、河南、湖北、湖南
 **************************************************************************
-replace region = "中部" if inlist(prov, ///
+replace region = 2 if inlist(prov, ///
     "山西省", "安徽省", "江西省", "河南省", "湖北省")
-replace region = "中部" if inlist(prov, ///
+replace region = 2 if inlist(prov, ///
     "湖南省")
 
 **************************************************************************
 * West：内蒙古、广西、重庆、四川、贵州、云南、西藏、陕西、甘肃、青海、宁夏、新疆
 **************************************************************************
-replace region = "西部" if inlist(prov, ///
+replace region = 3 if inlist(prov, ///
     "内蒙古自治区", "广西壮族自治区", "重庆市", "四川省", "贵州省")
-replace region = "西部" if inlist(prov, ///
+replace region = 3 if inlist(prov, ///
     "云南省", "西藏自治区", "陕西省", "甘肃省", "青海省")
-replace region = "西部" if inlist(prov, ///
+replace region = 3 if inlist(prov, ///
     "宁夏回族自治区", "新疆维吾尔自治区")
 
 **************************************************************************
 * Northeast：辽宁、吉林、黑龙江
 **************************************************************************
-replace region = "东北" if inlist(prov, ///
+replace region = 4 if inlist(prov, ///
     "辽宁省", "吉林省", "黑龙江省")
 
+label define region_lbl ///
+    1 "East" ///
+    2 "Middle" ///
+    3 "West" ///
+    4 "Northeast"
+label values region region_lbl
+label variable region "Region"
 
 // drop unneccesary variables
 drop hhid_2011 hhid_2013 hhid_2015 hhid_2017 prov prov_code pline hhcid pab weight_ind city_lab county_lab house_asset comprop_asset agri_asset busi_asset vehicle_asset othnf_asset house_debt comprop_debt agri_debt busi_debt vehicle_debt other_debt othnf_debt nfina_asset fina_debt fina_asset qc
@@ -114,6 +128,12 @@ drop hhid_2011 hhid_2013 hhid_2015 hhid_2017 prov prov_code pline hhcid pab weig
 gen year = 2017
 order year
 
+// replace value labels
+label define rural_lbl ///
+    0 "Urban" ///
+    1 "Rural"
+label values rural rural_lbl
+label variable rural "1: Rural 0: Urban"
 
 save "$data/chfs2017_clean.dta", replace
 

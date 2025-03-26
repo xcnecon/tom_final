@@ -1,3 +1,4 @@
+ssc install ineqdecgini
 use "$data/chfs2017_clean.dta", clear
 
 //Calculate the gini index and MLD for household total income
@@ -66,64 +67,45 @@ matrix rownames results_1 = "Household Equity" "Commercial Property Equity" "Car
 matlist results_1, format(%15.4f)
 
 // income gini based on rural and urban
-preserve
-keep if rural == 1
-quietly sum total_income [aw= weight_hh], d
-scalar mean_income_rural = r(mean)
-scalar median_income_rural = r(p50)
-quietly cumul total_income [aw=weight], g(Fy_income_rural) 
-quietly corr total_income Fy_income_rural [aw=weight], c 
-scalar cov_income_rural = r(cov_12)
-scalar gini_income_rural = 2 * cov_income_rural / mean_income_rural
-restore
 
-preserve
-keep if rural == 0
-quietly sum total_income [aw= weight_hh], d
+quietly sum total_income [aw= weight_hh] if rural == 0, d
 scalar mean_income_urban = r(mean)
 scalar median_income_urban = r(p50)
-quietly cumul total_income [aw=weight], g(Fy_income_urban) 
-quietly corr total_income Fy_income_urban [aw=weight], c 
-scalar cov_income_urban = r(cov_12)
-scalar gini_income_urban = 2 * cov_income_urban / mean_income_urban
-restore
 
-display "Mean of Rural Household Total Income: " mean_income_rural
-display "Mean of Urban Household Total Income: " mean_income_urban
+quietly sum total_income [aw= weight_hh] if rural == 1, d
+scalar mean_income_rural = r(mean)
+scalar median_income_rural = r(p50)
+
 display "Median of Rural Household Total Income: " median_income_rural
 display "Median of Urban Household Total Income: " median_income_urban
-display "Gini Index of Rural Household Total Income: " gini_income_rural
-display "Gini Index of Urban Household Total Income: " gini_income_urban
 
-// net worth gini based on rural and urban
+// group decomposition of gini
+ineqdecgini net_worth, by(rural)
+
+
+// net worth gini based on region
 preserve
-keep if rural == 1
-quietly sum net_worth [aw= weight_hh], d
-scalar mean_net_worth_rural = r(mean)
-scalar median_net_worth_rural = r(p50)
-quietly cumul net_worth [aw=weight], g(Fy_net_worth_rural) 
-quietly corr net_worth Fy_net_worth_rural [aw=weight], c 
-scalar cov_net_worth_rural = r(cov_12)
-scalar gini_net_worth_rural = 2 * cov_net_worth_rural / mean_net_worth_rural
-restore
+quietly sum net_worth [aw= weight_hh] if region == 1, d
+scalar mean_net_worth_east = r(mean)
+scalar median_net_worth_east = r(p50)
 
-preserve
-keep if rural == 0
-quietly sum net_worth [aw= weight_hh], d
-scalar mean_net_worth_urban = r(mean)
-scalar median_net_worth_urban = r(p50)
-quietly cumul net_worth [aw=weight], g(Fy_net_worth_urban) 
-quietly corr net_worth Fy_net_worth_urban [aw=weight], c 
-scalar cov_net_worth_urban = r(cov_12)
-scalar gini_net_worth_urban = 2 * cov_net_worth_urban / mean_net_worth_urban
-restore
+quietly sum net_worth [aw= weight_hh] if region == 2, d
+scalar mean_net_worth_middle = r(mean)
+scalar median_net_worth_middle = r(p50)
 
-display "Mean of Rural Household Net Worth: " mean_net_worth_rural
-display "Mean of Urban Household Net Worth: " mean_net_worth_urban
-display "Median of Rural Household Net Worth: " median_net_worth_rural
-display "Median of Urban Household Net Worth: " median_net_worth_urban
-display "Gini Index of Rural Household Net Worth: " gini_net_worth_rural
-display "Gini Index of Urban Household Net Worth: " gini_net_worth_urban
+quietly sum net_worth [aw= weight_hh] if region == 3, d
+scalar mean_net_worth_west = r(mean)
+scalar median_net_worth_west = r(p50)
 
+quietly sum net_worth [aw= weight_hh] if region == 4, d
+scalar mean_net_worth_northeast = r(mean)
+scalar median_net_worth_northeast = r(p50)
 
-// 
+display "Median of East Household Net Worth: " median_net_worth_east
+display "Median of Middle Household Net Worth: " median_net_worth_middle
+display "Median of West Household Net Worth: " median_net_worth_west
+display "Median of Northeast Household Net Worth: " median_net_worth_northeast
+
+// group decomposition of gini
+ineqdecgini net_worth, by(region)
+
