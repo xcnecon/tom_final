@@ -1,5 +1,5 @@
 ssc install ineqdecgini
-use "$data/chfs2017_clean.dta", clear
+use "$data/chfs2019_clean.dta", clear
 
 //Calculate the gini index and MLD for household total income
 quietly sum total_income [aw= weight_hh],d
@@ -28,7 +28,7 @@ display "Gini Index of Household Net Worth: " gini_net_worth
 
 
 // factor decompose gini for net worth
-foreach k in "house_equity""comprop_equity" "car_equity" "fina_equity" "other_equity" "educ_debt" "credit_debt" "medical_debt" {
+foreach k in "house_equity" "commercial_equity" "comprop_equity" "car_equity" "fina_equity" "other_equity" "educ_debt" "credit_debt" "medical_debt" {
 	preserve
     // calculate the covariance between `k' and Fy
 	quietly corr `k' Fy_net_worth [aw=weight], c
@@ -53,6 +53,7 @@ foreach k in "house_equity""comprop_equity" "car_equity" "fina_equity" "other_eq
 
 
 matrix results_1 = (r_house_equity, g_house_equity, s_house_equity, contribution_house_equity \ ///
+                    r_commercial_equity, g_commercial_equity, s_commercial_equity, contribution_commercial_equity \ ///
                     r_comprop_equity, g_comprop_equity, s_comprop_equity, contribution_comprop_equity \ ///
                     r_car_equity, g_car_equity, s_car_equity, contribution_car_equity \ ///
                     r_fina_equity, g_fina_equity, s_fina_equity, contribution_fina_equity \ ///
@@ -62,7 +63,7 @@ matrix results_1 = (r_house_equity, g_house_equity, s_house_equity, contribution
                     r_medical_debt, g_medical_debt, s_medical_debt, contribution_medical_debt)
 
 matrix colnames results_1 = "Gini Correlation" "Gini Coefficient" "Share" "Contribution"
-matrix rownames results_1 = "Household Equity" "Commercial Property Equity" "Car Equity" "Financial Equity" "Other Equity" "Educational Debt" "Credit Debt" "Medical Debt"
+matrix rownames results_1 = "Household Equity" "Commercial Equity" "Commercial Property" "Car Equity" "Financial Equity" "Other Equity" "Educational Debt" "Credit Debt" "Medical Debt"
 
 matlist results_1, format(%15.4f)
 

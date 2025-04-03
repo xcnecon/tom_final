@@ -23,7 +23,7 @@ gen other_equity = othnf_asset - othnf_debt - other_debt
 gen fina_equity = fina_asset - fina_debt
 
 label variable house_equity "House Equity"
-label variable comprop_equity "Commercial Equity"
+label variable comprop_equity "Commercial Property"
 label variable commercial_equity "Commercial Equity"
 label variable car_equity "Car Equity"
 label variable other_equity "Other Equity"
@@ -72,7 +72,7 @@ gen other_equity = othnf_asset - othnf_debt - other_debt
 gen fina_equity = fina_asset - fina_debt
 
 label variable house_equity "House Equity"
-label variable comprop_equity "Commercial Equity"
+label variable comprop_equity "Commercial Property"
 label variable commercial_equity "Commercial Equity"
 label variable car_equity "Car Equity"
 label variable other_equity "Other Equity"
