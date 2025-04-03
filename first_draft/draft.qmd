@@ -1,0 +1,81 @@
+---
+title: "Wealth Inequality in China: Evidence from the 2017 and 2019 CHFS"
+format:
+    pdf:
+        documentclass: article 
+        author: Chenning Xu
+        number-sections: true
+        margin-top: 1in
+        margin-bottom: 1in
+        margin-left: 1in
+        margin-right: 1in
+        linestretch:  1.2
+        fontsize: 10pt
+    html: default    
+bibliography: tom.bib
+---
+
+# Introduction
+China has experienced remarkable economic growth in recent decades following its reform and opening-up policy initiated in 1978. However, this period has also been marked by a significant rise in income and wealth inequality [@piketty_capital_2019]. Some scholars have provided evidence suggesting that China's overall inequality peaked around 2010 and subsequently began to decline [@kanbur_great_2021; @zhang_survey_2021]. It is also well-documented that China's inequality is strongly intertwined with its urban-rural and coastal-inland divisions [@piketty_capital_2019; @zhang_survey_2021]. This paper utilizes data from the 2017 and 2019 China Household Finance Survey (CHFS) to examine the current state of China's wealth inequality. Specifically, it investigates whether the latest publicly available data supports the view that China's inequality has continued to decline since around 2010, as well as how China's wealth inequality relates to urban-rural and regional disparities.
+
+# Background
+This section presents some notable findings on China's income and wealth inequality in the existing literature. 
+
+China has experienced a considerable increase in income and wealth inequality since the reform and opening-up policy initiated in 1978. Using diverse sources, including tax records, household surveys, and private wealth rankings, @piketty_capital_2019 provide a detailed analysis of the transformation in China's inequality profile. Their findings show that between 1978 and 2015, the income share of the top 10% increased from 27% to 41%, while the share of the bottom 50% decreased from 27% to 15%. Wealth concentration also intensified significantly: the wealth share held by the top 10% rose from around 40% to nearly 70%, whereas the bottom 50%'s share dropped from over 15% to about 5%. Additionally, they documented an increase in the urban-to-rural per capita income ratio, from less than 200% in 1978 to approximately 350% by 2015. Humorously noting this stark shift, they remarked that China had transitioned from Nordic-level equality to U.S.-level inequality during the reform era.
+
+@knight_why_2022 further document a rapid rise in China's household wealth inequality between 2002 and 2013, reporting that the national Gini coefficient for household wealth per capita increased markedly from 0.50 to 0.62. They identify housing wealth as the primary driver behind this increase, with its share rising from 53% to 73% of total household wealth, and its contribution to overall wealth inequality growing from 64% to 79%. The authors emphasize that differential savings rates across income groups, uneven house price inflation—particularly pronounced in major urban centers—and widening urban-rural disparities significantly intensified wealth inequality during this period.
+
+The income and wealth inequality highly intersects with urban-rural and reginal disparities. @zhang_survey_2021 highlights significant rural-urban and regional disparities underlying China's rising inequality since its economic reforms. The urban-rural income ratio increased sharply, peaking at around 3.3 in 2009 before declining slightly to 2.7 by 2019, still substantially higher than pre-reform levels. Despite a notable decline in overall inequality after 2010—with the national Gini coefficient decreasing from a peak of 0.491 in 2008 to approximately 0.465 in 2019—regional inequality remains pronounced. For instance, per capita GDP in the eastern coastal region was roughly 2.6 times higher than in the western region by 2018. Additionally, rural-to-urban migration grew dramatically from fewer than 20 million in 1990 to approximately 290 million by 2019, reflecting both the economic disparity between regions and the persistent urban-rural divide, exacerbated by restricted access to urban public services under the Hukou household registration system.
+
+Consistent with the finding in @zhang_survey_2021 that China's inequality peaked in 2008 and 2009, @kanbur_great_2021 similarly document that China's inequality increased sharply after economic reforms but started to plateau around 2010. They find the national Gini coefficient peaked at about 0.525 in 2010, subsequently declining to approximately 0.476 in 2016 before rising slightly again. Consistent with Zhang (2021), they attribute this recent turnaround primarily to narrowing rural-urban and coastal-inland disparities, driven by demographic changes, tightening rural labor markets, and rising rural wages. 
+
+# Data
+Using the relatively new and underexplored 2017 and 2019 China Household Finance Survey (CHFS) datasets, this paper aims to compare its findings with results from earlier literature. CHFS is a national household survey initiated by the Southwestern University of Finance and Economics (SWUFE) in 2009, with the first results published in 2011. It focuses specifically on collecting detailed, micro-level information on household finances (@kanbur_great_2021). Since 2017, CHFS has made available aggregated household-level data on wealth variables such as housing values, though the original micro-level data remains proprietary. The availability of these aggregated data allows this paper to analyze China's wealth inequality in 2017 and 2019, comparing these recent results with earlier analyses by the CHFS research team and other scholars who utilized different data sources.
+
+The household wealth variables consistently available in both 2017 and 2019 include total household assets and debts, financial assets and debts, agricultural assets and debts, business assets and debts, land, housing assets and debts, commercial property assets and debts, vehicle assets and debts, education debts, credit debts, medical debts, and other miscellaneous assets and debts. In 2019, an additional variable, garage assets, was reported separately from housing assets; this variable was not present in 2017.
+
+For consistency, this paper calculates equity values by deducting debts from corresponding assets, except for land, which is typically fully owned and non-transferable. Due to its relatively small aggregate value, garage assets in 2019 are recombined with housing assets for analytical consistency. 
+
+Given the relatively short period between 2017 and 2019, this study aims to identify stable patterns in China's wealth inequality using data from these two years. Additionally, it compares the findings with earlier studies that utilize the same CHFS dataset to infer recent trends in wealth inequality[@tan_earnings_2017].
+
+# Analysis
+## Change of Gini from 2011 to 2019
+This section presents the Gini index analysis using the 2017 and 2019 CHFS data. The statistics from the 2011 CHFS data is from @tan_earnings_2017, which is work from CFHS's research team. All the income and wealth statistics are aggregated at the household level.
+
+| Statistic | Income 2011 | Income 2017 | Income 2019 | Wealth 2011 | Wealth 2017 | Wealth 2019 |
+|-----------|-------------|-------------|-------------|-------------|-------------|-------------|
+| Mean      | 60,053     | 91,324     | 73,921     | 687,061    | 909,283    | 860,754    |
+| Median    | 28,312     | 57,142     | 42,279     | 197,150    | 355,837    | 312,949    |
+| Gini      | 0.664      | 0.592      | 0.637      | 0.761      | 0.693      | 0.705      |
+| N         | 8,438      | 38,994     | 33,621     | 8,438      | 38,994     | 33,621     |
+
+Compared to the 2011 data, the Gini coefficient for both income and wealth has decreased in 2017 and 2019, which is consistent with the findings in @kanbur_great_2021 and @zhang_survey_2021. Both income and wealth are higher by mean and median in 2017 than 2019, which is a strange finding that is likely due to a change in the survey design. The Gini coefficients for income and wealth are slighly higher in 2019 than 2017, but the difference is not significant enough to draw a conclusion espcially given the change in survey design. 
+
+## Factor decomposition of wealth inequality
+
+| 2017 Wealth      | Gini Correlation | Gini Coefficient | Share   | Contribution |
+|-------------------|------------------|------------------|---------|--------------|
+| Houesing Equity  | 0.9661          | 0.7181          | 0.7204  | 0.7211       |
+| Commercial Equity | 0.8153          | 0.9867          | 0.0202  | 0.0234       |
+| Car Equity        | 0.6537          | 0.9099          | 0.0304  | 0.0261       |
+| Financial Equity  | 0.7943          | 0.7915          | 0.1228  | 0.1114       |
+| Other Equity      | 0.6354          | 0.9332          | 0.0198  | 0.0170       |
+| Educational Debt  | -0.3040         | 0.9875          | 0.0011  | -0.0005      |
+| Credit Debt       | 0.3427          | 0.9903          | 0.0013  | 0.0007       |
+| Medical Debt      | -0.5763         | 0.9816          | 0.0019  | -0.0015      |
+
+| 2019 Wealth      | Gini Correlation | Gini Coefficient | Share   | Contribution |
+|-------------------|------------------|------------------|---------|--------------|
+| Housing Equity  | 0.9603          | 0.7362          | 0.6798  | 0.6817       |
+| Commercial Equity | 0.8052          | 0.9920          | 0.0133  | 0.0151       |
+| Car Equity        | 0.6818          | 0.8569          | 0.0306  | 0.0254       |
+| Financial Equity  | 0.8031          | 0.7883          | 0.1386  | 0.1245       |
+| Other Equity      | 0.7336          | 1.0215          | 0.0237  | 0.0251       |
+| Educational Debt  | -0.3742         | 0.9889          | 0.0009  | -0.0005      |
+| Credit Debt       | 0.3613          | 0.9910          | 0.0009  | 0.0004       |
+| Medical Debt      | -0.5068         | 0.9824          | 0.0022  | -0.0015      |
+
+The factor decompostion of the Gini coefficient for household wealth in two years shows that housing equity is still the largest and dominant contributor to China's wealth inequality, contributing around 70% to the overall wealth Gini. Financial equity follows by contributing to 11.1% in 2017 and 12.5% in 2019 to the overall wealth Gini. Commercial equity such as agricultural and business assets contrbutes to a smaller portion, by about 5% in 2017 and 4% in 2019. 
+
+
+# References
