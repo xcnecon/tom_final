@@ -30,7 +30,7 @@ The income and wealth inequality highly intersects with urban-rural and reginal 
 Consistent with the finding in @zhang_survey_2021 that China's inequality peaked in 2008 and 2009, @kanbur_great_2021 similarly document that China's inequality increased sharply after economic reforms but started to plateau around 2010. They find the national Gini coefficient peaked at about 0.525 in 2010, subsequently declining to approximately 0.476 in 2016 before rising slightly again. Consistent with Zhang (2021), they attribute this recent turnaround primarily to narrowing rural-urban and coastal-inland disparities, driven by demographic changes, tightening rural labor markets, and rising rural wages. 
 
 # Data
-Using the relatively new and underexplored 2017 and 2019 China Household Finance Survey (CHFS) datasets, this paper aims to compare its findings with results from earlier literature. CHFS is a national household survey initiated by the Southwestern University of Finance and Economics (SWUFE) in 2009, with the first results published in 2011. It focuses specifically on collecting detailed, micro-level information on household finances (@kanbur_great_2021). Since 2017, CHFS has made available aggregated household-level data on wealth variables such as housing values, though the original micro-level data remains proprietary. The availability of these aggregated data allows this paper to analyze China's wealth inequality in 2017 and 2019, comparing these recent results with earlier analyses by the CHFS research team and other scholars who utilized different data sources.
+Using the relatively new and underexplored 2017 and 2019 China Household Finance Survey (CHFS) datasets, this paper aims to compare its findings with results from earlier literature. CHFS is a national household survey initiated by the Southwestern University of Finance and Economics (SWUFE) in 2009, with the first results published in 2011. It focuses specifically on collecting detailed, micro-level information on household finances (@kanbur_great_2021). 
 
 The household wealth variables consistently available in both 2017 and 2019 include total household assets and debts, financial assets and debts, agricultural assets and debts, business assets and debts, land, housing assets and debts, commercial property assets and debts, vehicle assets and debts, education debts, credit debts, medical debts, and other miscellaneous assets and debts. In 2019, an additional variable, garage assets, was reported separately from housing assets; this variable was not present in 2017.
 
@@ -44,38 +44,70 @@ This section presents the Gini index analysis using the 2017 and 2019 CHFS data.
 
 | Statistic | Income 2011 | Income 2017 | Income 2019 | Wealth 2011 | Wealth 2017 | Wealth 2019 |
 |-----------|-------------|-------------|-------------|-------------|-------------|-------------|
-| Mean      | 60,053     | 91,324     | 73,921     | 687,061    | 909,283    | 860,754    |
-| Median    | 28,312     | 57,142     | 42,279     | 197,150    | 355,837    | 312,949    |
-| Gini      | 0.664      | 0.592      | 0.637      | 0.761      | 0.693      | 0.705      |
-| N         | 8,438      | 38,994     | 33,621     | 8,438      | 38,994     | 33,621     |
+| Mean      | 60,053     | 89,634     | 94,005     | 687,061    | 839,008    | 1,085,589    |
+| Median    | 28,312     | 54,108     | 57,035     | 197,150    | 322,515    | 457,600    |
+| Gini      | 0.664      | 0.605      | 0.614     | 0.761      | 0.701      | 0.667      |
+| N         | 8,438      | 38,994     | 33,387     | 8,438      | 38,994     | 33,387     |
 
-Compared to the 2011 data, the Gini coefficient for both income and wealth has decreased in 2017 and 2019, which is consistent with the findings in @kanbur_great_2021 and @zhang_survey_2021. Both income and wealth are higher by mean and median in 2017 than 2019, which is a strange finding that is likely due to a change in the survey design. The Gini coefficients for income and wealth are slighly higher in 2019 than 2017, but the difference is not significant enough to draw a conclusion espcially given the change in survey design. 
+Compared to the 2011 data, the Gini coefficient for income has decresed from 0.664 in 2011 to 0.605 in 2017 and remained stable in 2019. The Gini coefficient for wealth has decreased from 0.761 in 2011 to 0.701 in 2017 and continued to decrease to 0.667 in 2019. The results show that China's income and wealth inequality has been decreasing since 2011. The finding is consistent with the findings in @kanbur_great_2021 and @zhang_survey_2021, that China's inequality peaked around 2010 and started to decrease since then. 
+
 
 ## Factor decomposition of wealth inequality
 
 | 2017 Wealth      | Gini Correlation | Gini Coefficient | Share   | Contribution |
 |-------------------|------------------|------------------|---------|--------------|
-| Houesing Equity  | 0.9661          | 0.7181          | 0.7204  | 0.7211       |
-| Commercial Equity | 0.8153          | 0.9867          | 0.0202  | 0.0234       |
-| Car Equity        | 0.6537          | 0.9099          | 0.0304  | 0.0261       |
-| Financial Equity  | 0.7943          | 0.7915          | 0.1228  | 0.1114       |
-| Other Equity      | 0.6354          | 0.9332          | 0.0198  | 0.0170       |
-| Educational Debt  | -0.3040         | 0.9875          | 0.0011  | -0.0005      |
-| Credit Debt       | 0.3427          | 0.9903          | 0.0013  | 0.0007       |
-| Medical Debt      | -0.5763         | 0.9816          | 0.0019  | -0.0015      |
+| Housing Equity  | 0.9610          | 0.7244          | 0.6996  | 0.6950       |
+| Land Asset      | 0.4722          | 0.9204          | 0.0392  | 0.0243       |
+| Commercial Equity | 0.8246          | 1.1989          | 0.0667  | 0.0941       |
+| Commercial Property | 0.8290          | 0.9890          | 0.0213  | 0.0250       |
+| Car Equity        | 0.6648          | 0.9037          | 0.0339  | 0.0290       |
+| Financial Equity  | 0.8022          | 0.7964          | 0.1232  | 0.1123       |
+| Other Equity      | 0.6485          | 0.9438          | 0.0213  | 0.0186       |
+| Educational Debt  | -0.3166         | 0.9846          | 0.0014  | -0.0006      |
+| Credit Card Debt  | 0.3678          | 0.9899          | 0.0015  | 0.0008       |
+| Medical Debt      | -0.5801         | 0.9786          | 0.0023  | -0.0018       |
 
 | 2019 Wealth      | Gini Correlation | Gini Coefficient | Share   | Contribution |
 |-------------------|------------------|------------------|---------|--------------|
-| Housing Equity  | 0.9603          | 0.7362          | 0.6798  | 0.6817       |
-| Commercial Equity | 0.8052          | 0.9920          | 0.0133  | 0.0151       |
-| Car Equity        | 0.6818          | 0.8569          | 0.0306  | 0.0254       |
-| Financial Equity  | 0.8031          | 0.7883          | 0.1386  | 0.1245       |
-| Other Equity      | 0.7336          | 1.0215          | 0.0237  | 0.0251       |
-| Educational Debt  | -0.3742         | 0.9889          | 0.0009  | -0.0005      |
-| Credit Debt       | 0.3613          | 0.9910          | 0.0009  | 0.0004       |
-| Medical Debt      | -0.5068         | 0.9824          | 0.0022  | -0.0015      |
+| Housing Equity  | 0.9591          | 0.7015          | 0.6834  | 0.6876       |
+| Land Asset      | 0.7155          | 0.9700          | 0.0593  | 0.0615       |
+| Commercial Equity | 0.6812          | 1.2014          | 0.0359  | 0.0440       |
+| Commercial Property | 0.7778          | 0.9886          | 0.0144  | 0.0166       |
+| Car Equity        | 0.6651          | 0.8224          | 0.0344  | 0.0281       |
+| Financial Equity  | 0.7895          | 0.7484          | 0.1532  | 0.1354       |
+| Other Equity      | 0.7171          | 1.0296          | 0.0224  | 0.0247       |
+| Educational Debt  | -0.4199         | 0.9885          | 0.0008  | -0.0005      |
+| Credit Card Debt  | 0.3029          | 0.9854          | 0.0012  | 0.0005       |
+| Medical Debt      | -0.5591         | 0.9844          | 0.0016  | -0.0014       |
 
-The factor decompostion of the Gini coefficient for household wealth in two years shows that housing equity is still the largest and dominant contributor to China's wealth inequality, contributing around 70% to the overall wealth Gini. Financial equity follows by contributing to 11.1% in 2017 and 12.5% in 2019 to the overall wealth Gini. Commercial equity such as agricultural and business assets contrbutes to a smaller portion, by about 5% in 2017 and 4% in 2019. 
+The factor decompostion of the Gini coefficient for household wealth in two years shows that housing equity is still the largest and dominant contributor to China's wealth inequality, contributing around 70% to the overall wealth Gini. Financial equity follows by contributing to 11.1% in 2017 and 12.5% in 2019 to the overall wealth Gini. Commercial equity such as agricultural and business assets contrbutes to a relatively large portion in 2017 but to a smaller portion in 2019. Land asset contributes to a relatively large portion in 2017 but to a smaller portion in 2019. The cause of this is uninvestigated, which could be due to the change in survey design. Commercial property and car equity contribute to a relatively small portion in both years. Educational debt and medical debt negatively correlates with wealth inequality, which shows that the poor is disporportionately burdened by educational and medical debts, although their contribution to the overall wealth Gini is small.
+
+This high contribution of housing equity to wealth inequality is consistent with other studies. @xie_household_2015 used the 2012 CHPS data and documented that housing equity conprises of 71.6% of household wealth in China. @kanbur_great_2021 used the 2002 and 2013 CHIP data and found that housing euqity contribues to 64% of wealth inequality in 2002 and 79% in 2013. @tan_earnings_2017 documented with the 2011 CHFS data that the housing asset to total asset ratio was 66.73%, and the same ratio was 71.08% in 2017 and 67.23% in 2019. It appears that housing remains the largest wealth holding for Chinese households in 2017 and 2019, and housing is still the largest contributor to wealth inequality with no clear sign of change. 
+
+## Group decomposition of wealth inequality by rural and urban
+This section presents the group decomposition of wealth inequality by the urban-rural and regional divisions. 
+
+| Group | Population Share | Mean | Relative Mean | Median Income | Wealth Share | Gini |
+|-------|-----------------|------|---------------|---------------|--------------|------|
+| 2017 Urban | 0.6235 | 1,146,510 | 1.3665 | 66,760 | 0.8521 | 0.6573 |
+| 2017 Rural | 0.3765 | 329,715 | 0.3930 | 23,660 | 0.1479 | 0.6945 |
+| 2019 Urban | 0.6500 | 1,461,675 | 1.3464 | 69,600 | 0.8752 | 0.6165 |
+| 2019 Rural | 0.3500 | 387,130 | 0.3566 | 27,541 | 0.1248 | 0.6629 |
+
+The summary statistics above shows that in both 2017 and 2019, the mean and median income levels are significantly higher in urban areas compared to rural areas. The mean wealth in urban areas is 3.48 times the mean wealth in rural areas in 2017, and 3.78 times in 2019. The median wealth in urban areas is 2.82 times the median wealth in rural areas in 2017, and 2.52 times in 2019. 
+
+Notably, the Gini coefficient for wealth is higher in rural areas than in urban areas in both 2017 and 2019. 
+
+The decomposition of the Gini coefficient into within-group, between-group, and residual components shows[@lambert_inequality_1993]:
+
+| Year | Total Gini | Within-group | Between-group | Residual |
+|------|------------|--------------|---------------|----------|
+| 2017 | 100.00 | 55.35 | 32.61 | 12.04 |
+| 2019 | 100.00 | 56.79 | 33.68 | 9.53 |
+
+This decomposition reveals that about 55-57% of total wealth inequality is due to inequality within urban and rural groups, while about 33-34% is due to inequality between urban and rural areas. The residual component, representing the interaction between the within and between components, accounts for about 10-12% of total inequality. The stability of these components between 2017 and 2019 suggests that the urban-rural parity remains a significant driver of wealth inequality in China.
+
+## Group decomposition of wealth inequality by region
 
 
 # References

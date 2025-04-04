@@ -1,8 +1,15 @@
+//use the 2019 household raw data
+use "$data/chfs2019_raw.dta", clear
+// get the individual id of the household head
+keep hhid a1003a
+save "$data/2019_household_head.dta", replace
+
 // clean CHFS 2019 data
 use "$data/chfs2019.dta", clear
-
-// drop dubplicate household
-duplicates drop hhid, force
+merge m:1 hhid using "$data/2019_household_head.dta"
+drop _merge
+// keep the household head
+keep if pline == a1003a
 
 // Replace missing values with zeros for numeric variables only
 foreach var of varlist _all {
@@ -30,7 +37,7 @@ label variable other_equity "Other Equity"
 label variable fina_equity "Financial Equity"
 
 // drop unneccesary variables
-drop pline hhcid track pa28 weight_ind city_lab county_lab pabcd pab house_asset garage_asset comprop_asset agri_asset busi_asset vehicle_asset othnf_asset house_debt comprop_debt agri_debt busi_debt vehicle_debt other_debt othnf_debt nfina_asset fina_debt fina_asset
+drop pline hhcid track pa28 city_lab county_lab pabcd pab house_asset garage_asset comprop_asset agri_asset busi_asset vehicle_asset othnf_asset house_debt comprop_debt agri_debt busi_debt vehicle_debt other_debt othnf_debt nfina_asset fina_debt fina_asset
 
 // replace value labels
 label define rural_lbl ///
@@ -46,11 +53,21 @@ order year
 save "$data/chfs2019_clean.dta", replace
 
 
+//use the 2017 household raw data
+use "$data/chfs2017_raw.dta", clear
+// get the individual id of the household head
+keep if hhead == 1
+keep hhid pline
+rename pline a1003a
+save "$data/2017_household_head.dta", replace
+
 // clean CHFS 2017 data
 use "$data/chfs2017.dta", clear
+merge m:1 hhid using "$data/2017_household_head.dta"
+drop _merge
+// keep the household head
+keep if pline == a1003a
 
-// drop dubplicate household
-duplicates drop hhid, force
 drop if qc == 1 // drop if the quality of the survey is bad; this qc variable is not available in 2019, but since the 2017 dataset is larger than the 2019 dataset, we can use this variable to drop the bad quality data. The effect on selection bias is not investigated.
 
 // Replace missing values with zeros for numeric variables only
@@ -122,7 +139,7 @@ label values region region_lbl
 label variable region "Region"
 
 // drop unneccesary variables
-drop hhid_2011 hhid_2013 hhid_2015 hhid_2017 prov prov_code pline hhcid pab weight_ind city_lab county_lab house_asset comprop_asset agri_asset busi_asset vehicle_asset othnf_asset house_debt comprop_debt agri_debt busi_debt vehicle_debt other_debt othnf_debt nfina_asset fina_debt fina_asset qc
+drop hhid_2011 hhid_2013 hhid_2015 hhid_2017 prov prov_code pline hhcid pab city_lab county_lab house_asset comprop_asset agri_asset busi_asset vehicle_asset othnf_asset house_debt comprop_debt agri_debt busi_debt vehicle_debt other_debt othnf_debt nfina_asset fina_debt fina_asset qc
 
 // mark year
 gen year = 2017
