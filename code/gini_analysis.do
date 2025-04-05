@@ -1,5 +1,6 @@
-ssc install ineqdecgini
-use "$data/chfs2019_clean.dta", clear
+//ssc install ineqdecgini
+use "$data/chfs2017_clean.dta", clear
+//use "$data/chfs2019_clean.dta", clear
 
 //count
 count
