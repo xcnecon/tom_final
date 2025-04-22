@@ -22,22 +22,21 @@ foreach var of varlist _all {
 // generate variables
 gen net_worth = total_asset - total_debt
 // calculate the equity value of various assets by subtracting the debt from the asset
-gen house_equity = house_asset + garage_asset - house_debt
-gen comprop_equity = comprop_asset - comprop_debt
-gen commercial_equity = agri_asset + busi_asset - agri_debt - busi_debt
-gen car_equity = vehicle_asset - vehicle_debt
-gen other_equity = othnf_asset - othnf_debt - other_debt
+replace house_asset = house_asset + garage_asset
+gen commercial_asset = agri_asset + busi_asset + comprop_asset
+gen commercial_debt = agri_debt + busi_debt + comprop_debt
+replace other_debt = othnf_debt + other_debt + educ_debt + credit_debt + medical_debt
+gen other_asset = othnf_asset
 gen fina_equity = fina_asset - fina_debt
 
-label variable house_equity "House Equity"
-label variable comprop_equity "Commercial Property"
-label variable commercial_equity "Commercial Equity"
-label variable car_equity "Car Equity"
-label variable other_equity "Other Equity"
+label variable house_asset "House Asset"
+label variable commercial_asset "Commercial Asset"
+label variable commercial_debt "Commercial Debt"
+label variable other_debt "Other Debt"
 label variable fina_equity "Financial Equity"
 
 // drop unneccesary variables
-drop pline hhcid track pa28 city_lab county_lab pabcd pab house_asset garage_asset comprop_asset agri_asset busi_asset vehicle_asset othnf_asset house_debt comprop_debt agri_debt busi_debt vehicle_debt other_debt othnf_debt nfina_asset fina_debt fina_asset
+drop pline hhcid track pa28 city_lab county_lab pabcd pab garage_asset comprop_asset agri_asset busi_asset othnf_asset comprop_debt agri_debt busi_debt othnf_debt nfina_asset fina_debt fina_asset
 
 // replace value labels
 label define rural_lbl ///
@@ -68,7 +67,7 @@ drop _merge
 // keep the household head
 keep if pline == a1003a
 
-drop if qc == 1 // drop if the quality of the survey is bad; this qc variable is not available in 2019, but since the 2017 dataset is larger than the 2019 dataset, we can use this variable to drop the bad quality data. The effect on selection bias is not investigated.
+drop if qc == 1 // drop if the quality of the survey is bad; this qc variable is not available in 2019
 
 // Replace missing values with zeros for numeric variables only
 foreach var of varlist _all {
@@ -81,18 +80,17 @@ foreach var of varlist _all {
 // generate variables
 gen net_worth = total_asset - total_debt
 // calculate the equity value of various assets by subtracting the debt from the asset
-gen house_equity = house_asset - house_debt
-gen comprop_equity = comprop_asset - comprop_debt
-gen commercial_equity = agri_asset + busi_asset - agri_debt - busi_debt
-gen car_equity = vehicle_asset - vehicle_debt
-gen other_equity = othnf_asset - othnf_debt - other_debt
+replace house_asset = house_asset
+gen commercial_asset = agri_asset + busi_asset + comprop_asset
+gen commercial_debt = agri_debt + busi_debt + comprop_debt
+replace other_debt = othnf_debt + other_debt
+gen other_asset = othnf_asset
 gen fina_equity = fina_asset - fina_debt
 
-label variable house_equity "House Equity"
-label variable comprop_equity "Commercial Property"
-label variable commercial_equity "Commercial Equity"
-label variable car_equity "Car Equity"
-label variable other_equity "Other Equity"
+label variable house_asset "House Asset"
+label variable commercial_asset "Commercial Asset"
+label variable commercial_debt "Commercial Debt"
+label variable other_debt "Other Debt"
 label variable fina_equity "Financial Equity"
 
 // generate the missing rural variable
@@ -139,7 +137,7 @@ label values region region_lbl
 label variable region "Region"
 
 // drop unneccesary variables
-drop hhid_2011 hhid_2013 hhid_2015 hhid_2017 prov prov_code pline hhcid pab city_lab county_lab house_asset comprop_asset agri_asset busi_asset vehicle_asset othnf_asset house_debt comprop_debt agri_debt busi_debt vehicle_debt other_debt othnf_debt nfina_asset fina_debt fina_asset qc
+drop hhid_2011 hhid_2013 hhid_2015 hhid_2017 prov prov_code pline hhcid pab city_lab county_lab comprop_asset agri_asset busi_asset othnf_asset comprop_debt agri_debt busi_debt othnf_debt nfina_asset fina_debt fina_asset qc
 
 // mark year
 gen year = 2017

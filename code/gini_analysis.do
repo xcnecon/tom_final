@@ -1,6 +1,5 @@
 //ssc install ineqdecgini
 use "$data/chfs2017_clean.dta", clear
-//use "$data/chfs2019_clean.dta", clear
 
 //count
 count
@@ -30,9 +29,34 @@ display "Mean of Household Net Worth: " mean_net_worth
 display "Median of Household Net Worth: " median_net_worth
 display "Gini Index of Household Net Worth: " gini_net_worth
 
+// add proportion‑zero column
+local varlist "house_asset land_asset fina_equity vehicle_asset commercial_asset other_asset house_debt vehicle_debt commercial_debt other_debt"
+local nvars : word count `varlist'
+
+matrix asset_stats = J(`nvars',3,.)   // 3 columns: Mean | Median | Prop_zero
+local i = 1
+foreach v of varlist `varlist' {
+    // mean and median (weighted)
+    quietly sum `v' [aw=weight_ind], detail
+    matrix asset_stats[`i',1] = r(mean)
+    matrix asset_stats[`i',2] = r(p50)
+
+    // proportion of zero values (weighted)
+    gen byte zero_`v' = (`v'==0)
+    quietly sum zero_`v' [aw=weight_ind]
+    matrix asset_stats[`i',3] = r(mean)
+    drop zero_`v'
+
+    local ++i
+}
+
+matrix colnames asset_stats = "Mean" "Median" "Prop_zero"
+matrix rownames asset_stats = "House Asset" "Land Asset" "Financial Equity" "Vehicle Asset" "Commercial Asset" "Other Asset" "House Debt" "Vehicle Debt" "Commercial Debt" "Other Debt"
+
+matlist asset_stats, format(%15.2f)
 
 // factor decompose gini for net worth
-foreach k in "house_equity" "land_asset" "commercial_equity" "comprop_equity" "car_equity" "fina_equity" "other_equity" "educ_debt" "credit_debt" "medical_debt" {
+foreach k in "house_asset" "land_asset" "fina_equity" "vehicle_asset" "commercial_asset" "other_asset" "house_debt" "vehicle_debt" "commercial_debt" "other_debt" {
 	preserve
     // calculate the covariance between `k' and Fy
 	quietly corr `k' Fy_net_worth [aw=weight_ind], c
@@ -56,34 +80,34 @@ foreach k in "house_equity" "land_asset" "commercial_equity" "comprop_equity" "c
 }
 
 
-matrix results_1 = (r_house_equity, g_house_equity, s_house_equity, contribution_house_equity \ ///
+matrix results_1 = (r_house_asset, g_house_asset, s_house_asset, contribution_house_asset \ ///
                     r_land_asset, g_land_asset, s_land_asset, contribution_land_asset \ ///
-                    r_commercial_equity, g_commercial_equity, s_commercial_equity, contribution_commercial_equity \ ///
-                    r_comprop_equity, g_comprop_equity, s_comprop_equity, contribution_comprop_equity \ ///
-                    r_car_equity, g_car_equity, s_car_equity, contribution_car_equity \ ///
                     r_fina_equity, g_fina_equity, s_fina_equity, contribution_fina_equity \ ///
-                    r_other_equity, g_other_equity, s_other_equity, contribution_other_equity \ ///
-                    r_educ_debt, g_educ_debt, s_educ_debt, contribution_educ_debt \ ///
-                    r_credit_debt, g_credit_debt, s_credit_debt, contribution_credit_debt \ ///
-                    r_medical_debt, g_medical_debt, s_medical_debt, contribution_medical_debt)
+                    r_commercial_asset, g_commercial_asset, s_commercial_asset, contribution_commercial_asset \ ///
+                    r_vehicle_asset, g_vehicle_asset, s_vehicle_asset, contribution_vehicle_asset \ ///
+                    r_other_asset, g_other_asset, s_other_asset, contribution_other_asset \ ///
+                    r_house_debt, g_house_debt, s_house_debt, contribution_house_debt \ ///
+                    r_vehicle_debt, g_vehicle_debt, s_vehicle_debt, contribution_vehicle_debt \ ///
+                    r_commercial_debt, g_commercial_debt, s_commercial_debt, contribution_commercial_debt \ ///
+                    r_other_debt, g_other_debt, s_other_debt, contribution_other_debt)
 
 matrix colnames results_1 = "Gini Correlation" "Gini Coefficient" "Share" "Contribution"
-matrix rownames results_1 = "Household Equity" "Land Asset" "Commercial Equity" "Commercial Property" "Car Equity" "Financial Equity" "Other Equity" "Educational Debt" "Credit Debt" "Medical Debt"
+matrix rownames results_1 = "House Asset" "Land Asset" "Financial Equity" "Commercial Asset" "Vehicle Asset" "Other Asset" "House Debt" "Vehicle Debt" "Commercial Debt" "Other Debt"
 
 matlist results_1, format(%15.4f)
 
 // income gini based on rural and urban
 
-quietly sum total_income [aw= weight_ind] if rural == 0, d
-scalar mean_income_urban = r(mean)
-scalar median_income_urban = r(p50)
+quietly sum net_worth [aw= weight_ind] if rural == 0, d
+scalar mean_net_worth_urban = r(mean)
+scalar median_net_worth_urban = r(p50)
 
-quietly sum total_income [aw= weight_ind] if rural == 1, d
-scalar mean_income_rural = r(mean)
-scalar median_income_rural = r(p50)
+quietly sum net_worth [aw= weight_ind] if rural == 1, d
+scalar mean_net_worth_rural = r(mean)
+scalar median_net_worth_rural = r(p50)
 
-display "Median of Rural Household Total Income: " median_income_rural
-display "Median of Urban Household Total Income: " median_income_urban
+display "Median of Rural Household Net Worth: " median_net_worth_rural
+display "Median of Urban Household Net Worth: " median_net_worth_urban
 
 // group decomposition of gini
 ineqdecgini net_worth [aw=weight_ind], by(rural)
