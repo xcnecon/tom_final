@@ -1,5 +1,11 @@
 //ssc install ineqdecgini
 use "$data/chfs2017_clean.dta", clear
+//use "$data/chfs2019_clean.dta", clear
+
+//keep if rural == 1
+//keep if rural == 0
+//keep if region == 1
+//keep if region != 1
 
 //count
 count
