@@ -29,6 +29,12 @@ replace other_debt = othnf_debt + other_debt + educ_debt + credit_debt + medical
 gen other_asset = othnf_asset
 gen fina_equity = fina_asset - fina_debt
 
+replace house_debt = -house_debt
+replace vehicle_debt = -vehicle_debt
+replace commercial_debt = -commercial_debt
+replace other_debt = -other_debt
+replace fina_debt = -fina_debt
+
 label variable house_asset "House Asset"
 label variable commercial_asset "Commercial Asset"
 label variable commercial_debt "Commercial Debt"
@@ -86,6 +92,12 @@ gen commercial_debt = agri_debt + busi_debt + comprop_debt
 replace other_debt = othnf_debt + other_debt
 gen other_asset = othnf_asset
 gen fina_equity = fina_asset - fina_debt
+
+replace house_debt = -house_debt
+replace vehicle_debt = -vehicle_debt
+replace commercial_debt = -commercial_debt
+replace other_debt = -other_debt
+replace fina_debt = -fina_debt
 
 label variable house_asset "House Asset"
 label variable commercial_asset "Commercial Asset"

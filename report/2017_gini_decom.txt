@@ -1,12 +1,12 @@
 | 2017 Wealth      | Gini Correlation | Gini Coefficient | Share   | Contribution |
 |-------------------|------------------|------------------|---------|--------------|
-| Housing Equity  | 0.96          | 0.72          | 69.96%  | 69.50%       |
-| Land Asset      | 0.47          | 0.92          | 3.92%  | 2.43%       |
-| Commercial Equity | 0.82          | 1.20          | 6.67%  | 9.41%       |
-| Commercial Property | 0.83          | 0.99          | 2.13%  | 2.50%       |
-| Car Equity        | 0.66          | 0.90          | 3.39%  | 2.90%       |
-| Financial Equity  | 0.80          | 0.80          | 12.32%  | 11.23%       |
-| Other Equity      | 0.65          | 0.94          | 2.13%  | 1.86%       |
-| Educational Debt  | -0.32         | 0.98          | 0.14%  | -0.06%      |
-| Credit Card Debt  | 0.37          | 0.99          | 0.15%  | 0.08%       |
-| Medical Debt      | -0.58         | 0.98          | 0.23%  | -0.18%       |
+| House Asset       | 0.9543          | 0.7166          | 74.26%  | 72.48%       |
+| Land Asset        | 0.4722          | 0.9204          | 3.92%   | 2.43%        |
+| Financial Equity  | 0.8022          | 0.7964          | 12.32%  | 11.23%       |
+| Commercial Asset  | 0.8164          | 0.9547          | 11.07%  | 12.31%       |
+| Vehicle Asset     | 0.6576          | 0.8860          | 3.62%   | 3.01%        |
+| Other Asset       | 0.7060          | 0.6799          | 2.51%   | 1.72%        |
+| House Debt        | -0.5201         | -0.9339         | -4.30%  | -2.98%       |
+| Vehicle Debt      | -0.3267         | -0.9792         | -0.23%  | -0.11%       |
+| Commercial Debt   | -0.1270         | -0.9775         | -2.26%  | -0.40%       |
+| Other Debt        | 0.2694          | -0.9888         | -0.38%  | 0.14%        |
