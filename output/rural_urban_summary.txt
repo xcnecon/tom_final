@@ -1,4 +1,4 @@
-| Group      | Population Share | Wealth Share | Mean Wealth | Median Income | Gini |
+| Group      | Population Share | Wealth Share | Mean Wealth | Median Wealth | Gini |
 |------------|-----------------|--------------|-------------|---------------|------|
 | 2017 Urban | 62.35%          | 85.21%       | 1,146,510   | 513,324        | 0.6573 |
 | 2017 Rural | 37.65%          | 14.79%       | 329,715     | 147,468        | 0.6945 |
