@@ -1,0 +1,254 @@
+---
+title: "Wealth Inequality in China: Evidence from the 2017 and 2019 CHFS"
+format: 
+    pdf:
+        documentclass: article 
+        number-sections: true
+        margin-top: 1in
+        margin-bottom: 1in
+        margin-left: 1in
+        margin-right: 1in
+        linestretch:  1.2
+        fontsize: 12pt
+        author: "Chenning Xu"
+        fig-pos: "H"
+bibliography: tom.bib
+abstract: "This paper analyzes recent trends and structural determinants of wealth inequality in China using microdata from the 2017 and 2019 China Household Finance Survey (CHFS). The findings indicate a moderation in wealth inequality, aligning with earlier research focusing primarily on income inequality. By employing factor decomposition and group decomposition techniques, the analysis highlights considerable heterogeneity in the profiles of wealth inequality between urban-rural and coastal-inland populations. It further demonstrates that both urban-rural and regional disparities substantially contribute to overall wealth inequality. Based on these findings, the paper argues that effectively addressing wealth inequality in China requires government policies targeting urban-rural and regional imbalances, while also addressing within-group inequalities according to their distinct inequality profiles."
+---
+
+# Introduction
+
+China's economic trajectory over the past five decades, initiated by the reform and opening-up policy launched in 1978, involved a transition from a centrally planned to a more market-oriented economy. This period yielded high average GDP growth rates averaged over 9% per year along with considerable improvements in poverty reduction, health, and education [@world_bank_world_2024]. This growth, however, manifested unevenly across time, geography, and economic sectors. Coastal provinces, for instance, often experienced higher growth rates, benefiting from earlier integration with global markets, while inland and rural areas developed more slowly, contributing to regional disparities [@liao_sixty_2016]. Sectorally, growth was initially propelled by fixed-capital investment, residential investment boom, andexport-oriented manufacturing, a model that later showed signs of creating imbalances [@world_bank_world_2024]. China's annual GDP growth rate moderated from 10.6% in 2010 to 5.2% by 2023, reflecting a slowdown from the high rates experienced earlier in the decade [@world_bank_gdp_2025].
+
+Parallel to this economic expansion, China experienced a significant rise in wealth and income inequality. @piketty_capital_2019 reveals a marked shift in wealth distribution between 1978 and 2015, highlighting that the wealth share controlled by the top 10% increased substantially, from approximately 40% to nearly 70%, while the share held by the bottom 50% diminished significantly. This trend of rising inequality is further corroborated by the Gini coefficient for household wealth per capita, which increased notably from 0.5 in 2002 to 0.63 in 2013, according to an official national survey [@knight_why_2022]. Such levels of inequality are notably high by international standards [@tan_earnings_2017]. Furthermore, China's inequality dynamics are closely intertwined with urban-rural and coastal-inland divisions; urban and coastal regions consistently exhibit higher average income and wealth levels compared to their rural and inland counterparts [@piketty_capital_2019; @zhang_survey_2021]. Despite some narrowing since its peak in 2009, the urban-rural income ratio remained high in the late 2010s, and significant regional income disparities persist [@zhang_survey_2021], findings consistent across multiple data sources [@xie_income_2014].
+
+This study advances the understanding of wealth inequality in China by analyzing recent microdata from the 2017 and 2019 China Household Finance Survey (CHFS). Specifically, it evaluates whether recent wealth inequality trends align with earlier findings of declining inequality, which were predominantly based on income data [@kanbur_great_2021; @zhang_survey_2021]. The paper employs factor decomposition to identify the contributions of different asset types to overall wealth inequality. This approach is also applied separately to population subgroups defined by urban-rural and coastal-inland divisions to explore potential heterogeneity in the determinants of inequality across these dimensions. Additionally, group decomposition is used to quantify how much of total wealth inequality can be attributed to differences in average wealth between and within these subgroups. By combining recent data with these decomposition techniques, the paper provides an in-depth examination of the patterns and structural determinants underpinning wealth inequality in contemporary China. Based on these findings, this paper argues that government policies aiming to reduce China’s wealth inequality should simultaneously target urban-rural and regional imbalances, as well as address inequality within each subgroup according to their specific inequality profiles.
+
+# Literature Review
+This section reviews notable findings from existing literature on the evolution of China's income and wealth inequality following the market-oriented reforms initiated in 1978.
+
+China's economic trajectory since 1978 has been characterized by high rates of growth alongside a considerable increase in economic disparities. Utilizing diverse data including tax records, surveys, and wealth rankings, @piketty_capital_2019 meticulously document this transformation. Their analysis reveals a substantial redistribution of national income between 1978 and 2015: the top 10% saw their income share rise from 27% to 41%, while the bottom 50%'s share conversely fell from 27% to 15%. Wealth concentration followed a similar, potentially more pronounced, pattern. The wealth share of the top 10% increased from approximately 40% to nearly 70%, diminishing the bottom 50%'s share from over 15% to around 5%. Concurrently, the urban-rural income gap widened, with the average per capita income ratio increasing from less than 2:1 to about 3.5:1. This shift led @piketty_capital_2019 to observe that China moved from equality levels comparable to Nordic countries towards those observed in the U.S. during this period. Complementing this, @xie_income_2014 established, using multiple surveys from the mid-2000s onwards, that China's Gini coefficient had reached levels between 0.53 and 0.55, exceeding official figures and the US benchmark at the time.
+
+Focusing on the period between 2002 and 2013, @knight_why_2022 provide further evidence on the escalation of household wealth inequality using the Chinese Household Income Project (CHIP) data, reporting an increase in the Gini coefficient for wealth per capita from 0.50 to 0.62. A significant contributor to this increase was housing wealth, which expanded from 53% to 73% of total household assets. Housing also became increasingly central to wealth inequality, with its contribution rising from 64% to 79% of the overall inequality. The authors attribute the intensification of wealth inequality during these years to factors such as differential saving rates favoring the wealthy and uneven house price inflation that particularly benefited homeowners in major urban centers.
+
+These trends in income and wealth inequality are deeply intertwined with persistent structural divides within China. Significant rural-urban and regional disparities remain central to understanding China's inequality landscape [@zhang_survey_2021; @xie_income_2014]. The urban-rural income ratio, despite some decline after peaking around 3.3 in 2009, remained elevated at approximately 2.7 in 2019 [@zhang_survey_2021]. This gap is reinforced by the *hukou* (household registration) system, which limits rural migrants' access to urban services and opportunities, even as migration increased substantially from 1990 to 2019. Regional inequality also persists, with coastal areas generally outpacing inland regions [@liao_sixty_2016]. While overall income inequality showed signs of stabilization or decline after reaching a peak around 2008-2010 [@kanbur_great_2021; @zhang_survey_2021], attributed partly to narrowing structural gaps driven by demographic shifts and tightening rural labor markets, geographical disparities endure.
+
+The transition towards a market economy itself introduced multiple drivers of inequality [@benjamin_income_2008; @zhang_survey_2021]. In rural China, the rise was associated with unequal access to non-agricultural income sources, particularly family businesses, alongside periods of slow growth or falling prices in the agricultural sector [@benjamin_income_2008; @ravallion_chinas_2009]. In urban areas, contributing factors included the phasing out of subsidies and entitlements, increasing wage dispersion driven by market forces and enterprise reforms, higher returns to education (especially tertiary degrees), and unemployment resulting from State-Owned Enterprise (SOE) restructuring [@benjamin_income_2008]. Uneven regional development was further amplified by policies favoring coastal regions, as well as the differential impacts of globalization and marketization [@liao_sixty_2016]. It is worth noting, however, that considerable inequality also exists within specific localities, suggesting that factors beyond broad regional or urban-rural classifications are also influential [@benjamin_income_2008].
+
+# Data
+The empirical analysis in this paper utilizes microdata from the 2017 and 2019 waves of the China Household Finance Survey (CHFS). The CHFS, conducted biennially by the Survey and Research Center for China Household Finance at Southwestern University of Finance and Economics (SWUFE) since 2011, is designed to collect household financial information representative at both national and provincial levels [@gan_report_2014]. The survey employs a stratified, three-stage Probability Proportional to Size (PPS) random sampling methodology. This approach involves selecting counties, followed by village or neighborhood committees, and then households, incorporating oversampling of high-wealth households to better capture asset distribution. 
+
+Data are gathered through face-to-face interviews using Computer-Assisted Personal Interviewing (CAPI), collecting information at both household and individual levels [@gan_report_2014]. As with most survey data, CHFS figures are subject to potential limitations. Asset and income data rely on self-reporting, which can be affected by reporting error or bias. Respondent privacy is protected through methods including the top-coding of certain high-value income and asset variables; this may result in an underestimation of the upper tails of the respective distributions and potentially impact inequality metrics. It is also worth noting that potential adjustments in variable definitions between the 2017 and 2019 waves, such as the separate classification of garage assets in 2019 which was not present in 2017, may require consideration for longitudinal comparisons. 
+
+The dataset has been utilized in numerous academic studies exploring various facets of the Chinese economy and household behavior. Prior research using CHFS data has examined topics such as income and wealth distribution [@tan_earnings_2017], rural household finance [@gan_report_2014], household responses to health shocks and insurance availability [@liu_health_2022] and many others.
+
+The 2017 CHFS wave surveyed approximately 38,994 households, while the 2019 wave included 34,643 households across 343 county-level units in 29 provinces [@chfs_2017_2017; @chfs_2019_2019]. For the present analysis, observations identified as low quality in the 2017 data, along with those lacking essential variables for this study, were omitted; however, the final analytical sample retains the substantial majority of the original observations. 
+
+# Analysis
+## Summary Statistics
+This section provides an overview of household income and wealth in China from 2011 to 2019, demonstrating that the 2017 and 2019 waves of the CHFS align with earlier studies in confirming a declining trend in China's inequality since 2010.
+
+Compared to 2010 data, the Gini coefficient for income decreased from 0.664 in 2011 to 0.605 in 2017 and remained stable in 2019. Similarly, the Gini coefficient for wealth declined from 0.761 in 2011 to 0.701 in 2017, and continued to decrease to 0.667 in 2019. These results indicate a consistent reduction in China's income and wealth inequality since 2010, aligning with findings from @kanbur_great_2021 and @zhang_survey_2021, which also report that China's inequality peaked around 2010 before starting to decline.
+
+::: {#tbl-tbl1}
+
+{{< include ../output/summary_stats.txt >}}
+
+*All figures are reported in RMB at constant 2017 prices.*
+
+*Sources: @tan_earnings_2017's calculation based on the 2010 CHFS data and authors' calculation based on the 2017 and 2019 CHFS data.*
+
+Mean, Median, and Gini Coefficient for Income and Wealth in China, 2011, 2017, and 2019
+:::
+
+Compared to 2010 data, the Gini coefficient for income decreased from 0.664 in 2011 to 0.605 in 2017 and remained stable in 2019. Similarly, the Gini coefficient for wealth declined from 0.761 in 2011 to 0.701 in 2017, and continued to decrease to 0.667 in 2019. These results indicate a consistent reduction in China's income and wealth inequality since 2010, aligning with findings from @kanbur_great_2021 and @zhang_survey_2021, which also report that China's inequality peaked around 2010 before starting to decline.
+
+Notably, while the growth rate of mean and median income from 2010 to 2017 substantially outpaced that of wealth, this pattern reversed between 2017 and 2019, when the growth in mean and median wealth considerably surpassed that of income. This later-period divergence may reflect factors such as significant asset price appreciation relative to income growth.
+
+Regarding the causes for post-2000s decline in China’s inequality, @kanbur_great_2021 and @zhang_survey_2021 point to both the Lewis Turning Point and targeted policies. By the late 2000s, the absorption of surplus rural labor had tightened rural labor markets, narrowing the rural–urban wage gap. At the same time, the 2004 Minimum Wage Law, backed by increasingly rigorous enforcement, and the rollout of rural cooperative medical insurance in 2004, followed by rural social security schemes in 2009, together helped compress both income and wealth disparities.
+
+## Factor decomposition of wealth inequality
+This section applies the decomposition method developed by @lerman_income_1985 to identify the distinct contributions of various asset types to overall wealth inequality in China. This decomposition provides a detailed examination of how each asset component influences aggregate wealth inequality as measured by the Gini coefficient. Specifically, it separates each asset's contribution into three components: its share in total household wealth, its own Gini coefficient, and its correlation with the overall wealth rank. Formally, the overall wealth Gini coefficient can be decomposed into contributions from individual asset components as follows:
+
+$$
+G = \sum_{k=1}^{K} S_k G_k R_k
+$$
+
+where $G$ is the total wealth Gini coefficient, $S_k$ represents the share of total wealth held in asset type $k$, $G_k$ is the Gini coefficient for the distribution of asset $k$, and $R_k$ is the "Gini correlation" between asset $k$ and the rank order of total wealth. The summary statistics of each asset type are presented in @tbl-wealth-summary.
+
+The data shows that housing assets continue to dominate household wealth portfolios, consistently demonstrating much higher mean and median values compared to other asset types. Although housing significantly contributes to overall wealth inequality, homeownership remains widespread, with only about 10% of households reporting no housing assets. Moreover, housing-related debt remains minimal relative to housing values, with approximately 82% of households reporting no such debts, suggesting broad equity-based homeownership patterns.
+
+::: {#tbl-wealth-summary}
+
+{{< include ../output/wealth_summary.txt >}}
+
+All figures are reported in RMB at constant 2017 prices.
+
+*Source: Author's calculation based on the 2017 and 2019 CHFS data.*
+
+Summary Statistics of Wealth, 2017 and 2019
+:::
+
+Financial equity notably increased from 2017 to 2019, with mean values rising substantially from 103,355 RMB to 161,199 RMB and median values more than doubling from 17,170 RMB to 39,251 RMB. Correspondingly, financial assets increased their share in total household wealth from around 12% in 2017 to approximately 15% in 2019. Land asset ownership, reported by about 44% of households in 2017 and 41% in 2019, closely aligns with China's rural population proportion of approximately 42% in 2017 and 40% in 2019 [@world_bank_rural_nodate]. However, later results in this paper show that the gini coefficient for land in the rural area was as high as 0.9 in the rural area in 2019, which is significantly higher than the gini coefficient for wealth and for housing in rural areas. This shows that dispite a wide distribution of land ownership, the distribution of land is highly unequal in modern China.
+
+Observed changes in land, commercial, and other assets should be interpreted cautiously, as it appears that some assets are redefined or newly added to the variables, which might partly reflect definitional adjustments rather than purely economic dynamics.
+
+::: {#tbl-gini-decomposition-2017}
+
+{{< include ../output/2017_gini_decom.txt >}}
+
+*Source: Author's calculation based on the 2017 CHFS data.*
+
+Factor Decomposition of Wealth Gini Coefficient, 2017
+:::
+
+::: {#tbl-gini-decomposition-2019}
+
+{{< include ../output/2019_gini_decom.txt >}}
+
+*Source: Author's calculation based on the 2019 CHFS data.*
+
+Factor Decomposition of Wealth Gini Coefficient, 2019
+:::
+
+The factor decomposition results for 2017 and 2019 are presented in @tbl-gini-decomposition-2017 and @tbl-gini-decomposition-2019, respectively. Both years highlight the persistent and dominant role of housing assets in driving wealth inequality in China, contributing over 72% to overall inequality. Specifically, housing assets accounted for 74.2% of total household wealth in 2017 and 73% in 2019, figures notably higher than the 67% reported for 2010 by @tan_earnings_2017 using the same CHFS data. Together with the finding by @knight_why_2022, who documented a substantial increase in housing equity’s contribution from 64% in 2002 to 79% in 2013 based on CHIP data, these results confirm that housing has become an increasingly significant factor in shaping wealth inequality in China during the 21st century.
+
+Financial equity, including deposit, equity, bond and other financial assets, represented another significant factor, with its contribution to overall inequality increasing from approximately 11.2% in 2017 to 13.5% in 2019. Despite its comparatively smaller share of total household wealth, which limits its overall contribution to inequality, financial equity demonstrates a higher degree of internal inequality in its distribution than housing assets. Commercial assets, encompassing agricultural assets, business assets, and storefronts, ranked as the third-largest contributor to overall inequality. This asset class exhibits a very high Gini coefficient, potentially attributable to the concentration of family farming and business operations among a relatively small number of households. Land and vehicles represented smaller contributions to overall inequality. Sharp fluctuations observed in the share and contribution of commercial assets and land to the overall Gini coefficient appear to stem from definitional changes or systemic asset re-evaluation within the survey methodology, warranting caution in interpreting results related to these components across survey waves. Debt generally acts as a negative contributor to overall inequality, suggesting that higher-wealth households tend to hold larger absolute amounts of debt. An exception is noted for other debt, including medical, credit card, education, and miscellaneous debts, which show a slight positive contribution to overall inequality. This indicates that lower-wealth households are more likely to be burdened by consumer debt compared to debt acquired for asset accumulation.
+
+Overall, the structure of household wealth inequality in China remained relatively stable between 2017 and 2019. Housing assets maintained their dominant role, while financial assets became increasingly significant. To explore heterogeneity in wealth inequality patterns, the following sections decompose wealth inequality within specific demographic subgroups.
+
+## Factor decomposition partitioned by rural and urban residence
+Since changes in the factor decomposition for rural and urban households from 2017 to 2019 closely resemble those observed for the total population, this study presents only the 2019 decomposition results for these subgroups. As the subgroup decompositions utilize data from the same wave of the CHFS, the results remain strictly comparable.
+
+::: {#tbl-urban-decom}
+
+{{< include ../output/2019_urban_decom.txt >}}
+
+*Source: Author's calculation based on the 2019 CHFS data.*
+
+Factor Decomposition of Wealth Gini Coefficient, 2019 (Urban)
+:::
+
+::: {#tbl-rural-decom}
+
+{{< include ../output/2019_rural_decom.txt >}}
+
+*Source: Author's calculation based on the 2019 CHFS data.*
+
+Factor Decomposition of Wealth Gini Coefficient, 2019 (Rural)
+:::
+
+The comparative factor decompositions for 2019 highlight several notable distinctions between the determinants of wealth inequality in urban and rural China. In both contexts, residential property remains the dominant contributor to inequality; however, its impact is significantly more pronounced in urban areas, where housing accounts for approximately three-quarters of the overall Gini coefficient, compared to slightly over half in rural regions. This heightened urban influence reflects the disproportionately large share of housing assets within urban households' wealth portfolios. Although housing contributes less to inequality and homeownership rates are higher in rural areas (95% compared to 87% in urban areas according to the 2019 CHFS data), the value distribution of housing assets is more unequal in rural areas, as indicated by a higher Gini coefficient (0.67 in rural areas compared to 0.64 in urban areas).
+
+Land, a relatively insignificant asset class in urban household portfolios contributing only 5.8% to urban wealth inequality, represents a far more significant asset for rural households. Specifically, land comprises 17.1% of total rural assets and accounts for 18.4% of rural inequality. Similar to housing, the ownership rate of land among rural households is high, reaching 81% in 2019. Nevertheless, the distribution of land assets exhibits substantial inequality, with a Gini coefficient of 0.9 in 2019, considerably higher than the corresponding coefficient for housing in rural areas (0.67).
+
+Financial equity constitutes a greater proportion of wealth and contributes more substantially to wealth inequality in urban areas than in rural areas. Nevertheless, the distribution of financial equity remains more unequal among rural households. Conversely, vehicle assets account for a higher share of total wealth and contribute more significantly to inequality in rural regions. These outcomes regarding financial equity and vehicle assets align with expectations, as rural households are, on average, considerably poorer than urban households, resulting in higher thresholds for acquiring substantial financial assets and vehicles in rural settings. Commercial assets also represent a larger share of both total wealth and inequality in rural areas, possibly reflecting the prevalence of family farming and small-scale businesses among rural households.
+
+In conclusion, this section highlights the pronounced differences between urban and rural wealth inequality in China as of 2019. Urban wealth inequality is driven primarily by the concentration of housing and financial assets, whereas rural wealth inequality is more substantially influenced by disparities in land holdings, commercial assets, and vehicle ownership.
+
+## Factor decomposition partitioned by east and non-east regions
+This section conducts a factor decomposition analysis for the East and Non-East regions to examine regional differences in wealth inequality. The East region predominantly comprises coastal areas, which benefit from proximity to developed East Asian markets, including Japan, South Korea, Taiwan, and Hong Kong. In contrast, the Non-East region consists mainly of inland areas, encompassing the central, northwest, and southwest parts of the country, which generally exhibit lower levels of economic development relative to the East.
+
+::: {#fig-map}
+
+![](map.jpg){width=50%, fig-align=center}
+
+*Source: @map*
+
+China Four Regions Map
+:::
+
+It is worth noting that from 2017 to 2019, housing's contribution to the Gini coefficient rose by 2.4 percentage points among households in the East region, whereas it decreased by 2.9 percentage points among Non-East households, despite housing's overall contribution remaining nearly identical across both years. This finding is significant, indicating that housing-related wealth inequality increased in East China but decreased in Non-East regions during this period. Aside from housing, contributions from other asset and debt categories showed similar trends for East and Non-East households. Therefore, only the decomposition results for 2019 are presented here.
+
+The differences observed in the factor decomposition between the East and Non-East regions closely resemble those identified between urban and rural areas. Part of this similarity can likely be attributed to the higher urbanization rate in the East region compared to the Non-East regions (71% versus 61% in the 2019 CHFS data).
+
+
+::: {#tbl-east-decom}
+
+{{< include ../output/2019_east_decom.txt >}}
+
+*Source: Author's calculation based on the 2019 CHFS data.*
+
+Factor Decomposition of Wealth Gini Coefficient, 2019 (East)
+:::
+
+::: {#tbl-noneast-decom}
+
+{{< include ../output/2019_noneast_decom.txt >}}
+
+*Source: Author's calculation based on the 2019 CHFS data.*
+
+Factor Decomposition of Wealth Gini Coefficient, 2019 (Non-East)
+:::
+
+Relative to the nationwide decompositions for 2017 and 2019, the regional analyses reaffirm the pervasive significance of housing, land, and financial assets in shaping wealth inequality across China, while simultaneously highlighting distinctive regional patterns. In the coastal East, the influence of housing is particularly pronounced, contributing over 80 percent (80.3%) of total inequality, approximately eight percentage points above the national average. It is even fair to say that "housing inequality is the wealth inequality" in the East region. In contrast, housing accounts for a comparatively smaller share (58.3%) in the Non-East regions. Across all three decomposition components, housing distribution in the East aligns more closely with overall wealth rankings, is more unequal, and constitutes a greater share of total household wealth. 
+
+Land represents a minor asset class in the East region, accounting for only 2.6% of total household wealth, and displays a weak correlation with overall wealth rankings. Conversely, similar to the urban-rural comparison, land significantly influences wealth inequality in the inland regions, comprising 11.1% of total wealth and contributing 13.8% to total inequality. Unlike in the urban-rural comparison, financial equity emerges as a more critical asset class and driver of inequality in the Non-East regions than in the East. Specifically, financial equity constitutes 17.2% of total wealth and 15.7% of total inequality in the Non-East, compared to just 14.1% and 12.4%, respectively, in the East. The distribution patterns for commercial and vehicle assets closely align with those observed in the urban-rural comparisons.
+
+In conclusion, while housing remains the dominant contributor to wealth inequality in both East and Non-East regions, land and financial equity play relatively more significant roles in shaping inequality in the inland regions compared to the coastal East. Notably, financial equity is a stronger driver of inequality in the Non-East regions than in the East, a somewhat unexpected finding that may be explained by the comparatively lower housing values in inland areas, prompting households there to allocate a greater proportion of their wealth to financial assets.
+
+## Group decomposition of wealth inequality by rural and urban
+After examining both the overall landscape and the potential heterogeneity of wealth inequality in China, this section further investigates the extent to which national wealth inequality can be attributed to urban-rural and regional disparities, as well as to inequality within these subgroups. To analyze the sources of wealth inequality, this paper employs the classic Gini decomposition identity initially developed by @bhattacharya_regional_1967. The overall Gini coefficient  is decomposed as follows:
+
+$$G = G_{B} + \sum_{k} a_{k}G_{k} + R$$
+
+where $G_{B}$ is the between-group Gini, which captures inequality arising solely from differences in group means; $G_{k}$ is the within-group component, a weighted sum of the inequality within each group, with weights $a_{k}$ representing the products of each group's population share and wealth share; and $R$ is the overlap (residual) component, which captures inequality due to the intersection of group wealth distributions. @lambert_inequality_1993 provide a geometric interpretation of this overlap term, demonstrating that $R$ corresponds to the Lorenz curve area generated by reranking when subgroup wealth distributions overlap. A positive $R$ thus indicates significant intersections among wealth distributions of different groups.
+
+::: {#tbl-tbl4}
+
+{{< include ../output/rural_urban_summary.txt >}}
+
+*Source: Author's calculation based on the 2017 and 2019 CHFS data.*
+
+Summary statistics of urban and rural income and wealth, 2017 & 2019
+:::
+
+The summary statistics highlight significant and persistent disparities between urban and rural China. Urban households consistently exhibit higher mean incomes and wealth compared to rural households. Urban mean wealth was 3.48 times greater than rural mean wealth in 2017 and widened slightly to 3.78 times in 2019. Additionally, the Gini coefficient for wealth is consistently higher in rural areas (0.6945 in 2017, 0.6629 in 2019) compared to urban areas (0.6573 in 2017, 0.6165 in 2019), though Gini coefficients for both groups declined modestly between the two years.
+
+::: {#tbl-urbanrural-decomp}
+
+{{< include ../output/urban_rural_gini_decomp.txt >}}
+
+All figures are reported in RMB at constant 2017 prices.
+
+*Source: Author's calculation based on the 2017 and 2019 CHFS data.*
+
+Decomposition of wealth Gini coefficient by urban–rural division, 2017 & 2019 (%)
+:::
+
+The decomposition results indicate that approximately 55–57% (55.4% in 2017, 56.8% in 2019) of total wealth inequality can be attributed to disparities within urban and rural households. Meanwhile, the between-group component, reflecting differences in average wealth between urban and rural households, contributes roughly 33–34% (32.6% in 2017, 33.7% in 2019). Additionally, the overlap component, capturing inequality arising from intersecting wealth distributions of urban and rural groups, accounts for about 9–12% (12.0% in 2017, 9.5% in 2019) of overall inequality. The stability of these shares from 2017 to 2019 highlights the persistent importance of both within-group inequalities and the urban-rural wealth divide in shaping China’s national wealth inequality.
+
+::: {#tbl-region-summary}
+
+{{< include ../output/region_summary.txt >}}
+
+All figures are reported in RMB at constant 2017 prices.
+
+*Source: Author's calculation based on the 2017 and 2019 CHFS data.*
+
+Summary Statistics by Region, 2017 and 2019
+:::
+
+The summary statistics above indicate that both the mean and median household wealth in the East were significantly higher than those in the other regions in 2017 and 2019. Notably, in 2019, the mean wealth of households in the Western region surpassed that of the Middle region, although its median wealth remained lower. Concurrently, the Gini coefficient for the West increased sharply, becoming the highest among all regions in 2019 (0.6947). However, there is a lack of empirical literature examining the underlying causes for the rise in wealth inequality observed in the Western region during this period.
+
+::: {#tbl-region-decomp}
+
+{{< include ../output/region_gini_decomp.txt >}}
+
+*Source: Author's calculation based on the 2017 and 2019 CHFS data.*
+
+Decomposition of Wealth Gini Coefficient by Region, 2017 and 2019 (%)
+:::
+
+The regional group decomposition indicates that, analogous to the urban-rural analysis, the between-group component accounted for over 30% of total wealth inequality in both 2017 and 2019 (36.9% and 33.8%, respectively). Between-group contributions experienced a slight decline from 2017 to 2019, mirrored by a corresponding increase in the residual component (from 32.0% to 34.5%). This shift may suggest a modest convergence in household wealth across regions. Nonetheless, it remains clear that China's wealth inequality arises significantly from both within-region disparities and regional differences, with each component consistently contributing over 30% to overall inequality.
+
+In conclusion, the group decomposition results indicate that structural imbalances in China, primarily those between urban and rural areas and between East and Non-East regions, significantly contribute to overall wealth inequality. Each of these between-group effects individually accounts for over one-third of the total wealth inequality in 2019. Given that the residual component in each decomposition captures portions of between-group effects from the alternative grouping, the combined contribution of these structural imbalances likely surpasses one-third by some notable percentage points. Furthermore, the within-group contribution in the urban-rural decomposition is substantial, reaching 56.8% in 2019. Although the within-group contribution in the regional decomposition is relatively lower (31.5%), the combined effect of within-group inequality and residual overlap (34.5%) remains considerable. Consequently, policy efforts must not only focus on addressing structural disparities between different demographic groups but also actively mitigate inequalities within each population subgroup.
+
+# Conclusion and policy implications
+This paper analyzed wealth inequality in China using data from the 2017 and 2019 China Household Finance Survey (CHFS). The findings substantiate earlier studies focused on China's income inequality, suggesting that the country's wealth inequality has stabilized since 2010. Specifically, the national wealth Gini coefficient decreased from 0.76 in 2010 to 0.70 in 2017, and further declined to 0.67 in 2019. A comprehensive understanding of the drivers behind this moderation in inequality requires more rigorous causal analyses covering this recent period.
+
+Employing detailed factor and group decomposition analyses, this study demonstrated that wealth inequality in China is a multifaceted phenomenon, driven simultaneously by urban-rural disparities, regional differences, and within-group inequality. Moreover, substantial heterogeneity was observed in the sources and extent of wealth inequality across various subgroups, particularly between rural and urban households, as well as between the East and Non-East regions.
+
+These findings carry significant policy implications. To effectively reduce China's wealth inequality, policymakers must address both between-group disparities, such as those between urban-rural and regional populations, and within-group inequalities. Addressing between-group inequality necessitates targeted policies specifically aimed at improving conditions in rural and Non-East regions. Meanwhile, policies to mitigate within-group inequality should carefully consider the heterogenous characteristics of wealth distribution in different subgroups. For instance, specialized interventions are required in urban and Eastern regions to reduce housing-related inequality, whereas in rural and Non-East regions, measures such as equitable land redistribution and increased support for commercial and vehicle asset accumulation may prove more effective.
+
+# References
